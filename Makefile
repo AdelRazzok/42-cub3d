@@ -7,7 +7,11 @@ OBJ_DIR       = obj/
 CC            = gcc
 CFLAGS        = -Wall -Wextra -Werror
 
-SRC_FILES     = main error
+UTILS_DIR     = utils/
+UTILS         = str_utils
+
+SRC_FILES    += main error
+SRC_FILES    += $(addprefix $(UTILS_DIR), $(UTILS))
 
 SRC           = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ           = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -29,9 +33,11 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJ_CACHE)
 
 $(OBJ_CACHE):
 					@mkdir -p $(OBJ_DIR)
+					@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
 
 clean:
 					@rm -rf $(OBJ_DIR)
+					@rm -rf $(OBJ_CACHE)
 					@echo "$(NAME) object files cleaned!"
 
 fclean:			clean

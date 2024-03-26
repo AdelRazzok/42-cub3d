@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/26 18:37:54 by arazzok          ###   ########.fr       */
+/*   Created: 2024/03/26 14:45:00 by arazzok           #+#    #+#             */
+/*   Updated: 2024/03/26 16:59:15 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+#include "utils.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(const char *str)
 {
-	if (argc != 2)
-		error(ERR_NB_ARGS);
-	check_file(argv[1], ".cub");
-	return (0);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

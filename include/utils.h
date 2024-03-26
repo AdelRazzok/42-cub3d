@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/26 18:37:54 by arazzok          ###   ########.fr       */
+/*   Created: 2024/03/26 14:47:14 by arazzok           #+#    #+#             */
+/*   Updated: 2024/03/26 16:15:28 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		error(ERR_NB_ARGS);
-	check_file(argv[1], ".cub");
-	return (0);
-}
+int	ft_strlen(const char *str);
+int	ft_strcmp(const char *s1, const char *s2);
+
+#endif
