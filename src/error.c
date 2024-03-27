@@ -6,16 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/26 18:43:39 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/27 11:16:02 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * * FAIT 1. Mauvais nombre d'arguments
- * * FAIT 2. Mauvais format d'arguments
- * * FAIT 3. Fichier inexistant
- */
-
+#include "cub3d.h"
 #include "error.h"
 #include "utils.h"
 

@@ -8,10 +8,14 @@ CC            = gcc
 CFLAGS        = -Wall -Wextra -Werror
 
 UTILS_DIR     = utils/
-UTILS         = str_utils
+UTILS         = str_utils ft_split ft_substr get_next_line get_next_line_utils
+
+PARSER_DIR	  = parser/
+PARSER		  = parser
 
 SRC_FILES    += main error
 SRC_FILES    += $(addprefix $(UTILS_DIR), $(UTILS))
+SRC_FILES    += $(addprefix $(PARSER_DIR), $(PARSER))
 
 SRC           = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ           = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -34,6 +38,7 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJ_CACHE)
 $(OBJ_CACHE):
 					@mkdir -p $(OBJ_DIR)
 					@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
+					@mkdir -p $(OBJ_DIR)$(PARSER_DIR)
 
 clean:
 					@rm -rf $(OBJ_DIR)

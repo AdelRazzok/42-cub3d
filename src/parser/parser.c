@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 13:58:26 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 11:15:41 by arazzok          ###   ########.fr       */
+/*   Created: 2024/03/27 11:20:43 by arazzok           #+#    #+#             */
+/*   Updated: 2024/03/27 14:23:22 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
+#include "cub3d.h"
+#include "parser.h"
+#include "utils.h"
 
-# define ERROR_H
-# define MSG_NB_ARGS "Error\nWrong number of arguments\n"
-# define MSG_EXTENSION "Error\nWrong file extention\n"
-# define MSG_FILE "Error\nNo such file or directory\n"
-
-typedef enum e_error
+t_element	*get_elements(char *path)
 {
-	ERR_NB_ARGS,
-	ERR_EXTENSION,
-	ERR_FILE
-}		t_error;
+	t_element	*element = NULL;
+    char        *line;
+	int			fd;
 
-void	error(t_error error_code);
-void	check_file(const char *path, const char *extension);
-
-#endif
+	fd = open(path, O_RDONLY);
+    line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+	}
+	close(fd);
+    return (element);
+}

@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/26 13:49:34 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/27 13:34:20 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ typedef struct s_element
 	char	*floor_color;
 	char	*ceiling_color;
 }			t_element;
+
+t_element	*get_elements(char *path);
 
 #endif
