@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:47:14 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 14:20:30 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/27 17:26:32 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strchr(const char *str, char c);
 char		**ft_split(char const *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_strdup(const char *s);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -50,5 +51,15 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		ft_strcat(char **dst_ptr, const char *src);
 char		*get_next_line(int fd);
+
+/* ************************************************************************** */
+/*                                                                            */
+/* t_maps_utils                                                               */
+/*                                                                            */
+/* ************************************************************************** */
+
+struct s_map	*init_map(void);
+void			free_map(struct s_map *fmap);
+void			free_array(char **array);
 
 #endif

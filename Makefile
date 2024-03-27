@@ -8,10 +8,16 @@ CC            = gcc
 CFLAGS        = -Wall -Wextra -Werror
 
 UTILS_DIR     = utils/
-UTILS         = str_utils ft_split ft_substr get_next_line get_next_line_utils
+UTILS         = str_utils \
+				str_utils2 \
+				ft_split \
+				ft_substr \
+				get_next_line \
+				get_next_line_utils \
+				t_map_utils
 
 PARSER_DIR	  = parser/
-PARSER		  = parser
+PARSER		  = parser parser_utils
 
 SRC_FILES    += main error
 SRC_FILES    += $(addprefix $(UTILS_DIR), $(UTILS))
