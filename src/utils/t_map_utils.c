@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 17:27:09 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:05:26 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ void	free_array(char **array)
 
 void	free_map(t_map *fmap)
 {
-	free_array(fmap->map);
-	free(fmap->north_path);
-	free(fmap->south_path);
-	free(fmap->west_path);
-	free(fmap->east_path);
+	if (fmap->map)
+		free_array(fmap->map);
+	if (fmap->north_path)
+		free(fmap->north_path);
+	if (fmap->south_path)
+		free(fmap->south_path);
+	if (fmap->west_path)
+		free(fmap->west_path);
+	if (fmap->east_path)
+		free(fmap->east_path);
 	free(fmap);
 }

@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:06:05 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 17:32:44 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:36:24 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,14 @@ char	**full_map_to_array(char *path)
 	map[i] = NULL;
 	close(fd);
 	return (map);
+}
+
+int	is_element(char *str)
+{
+	return (!ft_strcmp(str, "NO")
+		|| !ft_strcmp(str, "SO")
+		|| !ft_strcmp(str, "WE")
+		|| !ft_strcmp(str, "EA")
+		|| !ft_strcmp(str, "F")
+		|| !ft_strcmp(str, "C"));
 }
