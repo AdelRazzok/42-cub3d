@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 12:33:23 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:05:21 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ t_map	*init_map(void)
 	fmap->south_path = NULL;
 	fmap->west_path = NULL;
 	fmap->east_path = NULL;
-	fmap->floor_color = 0;
-	fmap->ceiling_color = 0;
+	fmap->floor_color = NULL;
+	fmap->ceiling_color = NULL;
+	fmap->map_len = 0;
 	return (fmap);
 }
 
@@ -34,7 +35,7 @@ void	free_array(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i])
+	while (array && array[i])
 	{
 		free(array[i]);
 		i++;
@@ -65,17 +66,13 @@ void	free_map(t_map *fmap)
 
 void	print_map(t_map *fmap)
 {
-	int	i;
-
 	printf("\nPRINT T_MAP : \n");
-	if (fmap->map)
+
+	int	i = 0;
+	while (fmap->map && fmap->map[i])
 	{
-		i = 0;
-		while (fmap->map[i])
-		{
-			printf("%s\n", fmap->map[i]);
-			i++;
-		}
+		printf("map[%d]: %s\n", i, fmap->map[i]);
+		i++;
 	}
 	if (fmap->north_path)
 		printf("north_path    : %s", fmap->north_path);

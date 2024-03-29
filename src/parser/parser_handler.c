@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 10:57:07 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 12:55:13 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:21:33 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,21 @@ void	_handle_element(char *line, t_map *fmap)
 
 void	_handle_map(char *line, t_map *fmap)
 {
-	(void)line;
-	(void)fmap;
-	printf("handle map\n");
+	char	**tmp;
+
+	fmap->map_len++;
+	if (!fmap->map)
+	{
+		fmap->map = (char **)malloc(sizeof(char *) * 2);
+		fmap->map[0] = ft_strdup(line);
+		fmap->map[1] = NULL;
+		return ;
+	}
+	tmp = arrdup(fmap->map, fmap->map_len);
+	free(fmap->map);
+	fmap->map = tmp;
+	fmap->map[fmap->map_len - 1] = ft_strdup(line);
+	fmap->map[fmap->map_len] = NULL;
 }
 
 static void	_handle_color(char *line, t_map *fmap)

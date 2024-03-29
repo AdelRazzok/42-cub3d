@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 12:18:24 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:49:49 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	check_file(argv[1], ".cub");
 	fmap = init_map();
 	parse_map(argv[1], fmap);
+	print_map(fmap);
 	free_map(fmap);
 	return (0);
 }

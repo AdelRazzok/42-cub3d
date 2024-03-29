@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:34:50 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 12:17:31 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:19:45 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,22 @@ void	skip_spaces(char **str)
 {
 	while (**str == ' ')
 		(*str)++;
+}
+
+char	**arrdup(char **src, int size)
+{
+	char	**array;
+	int		i;
+
+	array = malloc(sizeof(char *) * (size + 1));
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (src[i] && i < size)
+	{
+		array[i] = ft_strdup(src[i]);
+		i++;
+	}
+	array[i] = NULL;
+	return (array);
 }

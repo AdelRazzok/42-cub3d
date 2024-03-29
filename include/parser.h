@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 11:45:55 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 13:34:06 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_map
 	char	*east_path;
 	char	*floor_color;
 	char	*ceiling_color;
+	int		map_len;
 }			t_map;
 
 void		parse_map(char *path, t_map *map);

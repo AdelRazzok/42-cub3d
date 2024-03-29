@@ -5,7 +5,7 @@ SRC_DIR       = src/
 OBJ_DIR       = obj/
 
 CC            = gcc
-CFLAGS        = -Wall -Wextra -Werror
+CFLAGS        = -Wall -Wextra -Werror -g
 
 UTILS_DIR     = utils/
 UTILS         = str_utils \
