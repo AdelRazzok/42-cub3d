@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:23:21 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 13:39:53 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:10 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 static size_t	_ft_countwords(char const *s, char c);
 static char		*_ft_getword(char const *s, char c);

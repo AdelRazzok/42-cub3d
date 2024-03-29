@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:45:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 14:11:35 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:25 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 size_t	ft_strlen(const char *str)
 {

@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:06:05 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/28 17:36:24 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:06 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 int	full_map_len(char *path)
 {
@@ -56,12 +55,26 @@ char	**full_map_to_array(char *path)
 	return (map);
 }
 
-int	is_element(char *str)
+bool	is_element(char *line)
 {
-	return (!ft_strcmp(str, "NO")
-		|| !ft_strcmp(str, "SO")
-		|| !ft_strcmp(str, "WE")
-		|| !ft_strcmp(str, "EA")
-		|| !ft_strcmp(str, "F")
-		|| !ft_strcmp(str, "C"));
+	if (!ft_strncmp(line, "NO", 2) || !ft_strncmp(line, "SO", 2)
+		|| !ft_strncmp(line, "WE", 2) || !ft_strncmp(line, "EA", 2)
+		|| !ft_strncmp(line, "F", 1) || !ft_strncmp(line, "C", 1))
+		return (true);
+	return (false);
+}
+
+bool	is_map_char(char *line)
+{
+	if (!ft_strncmp(line, "1", 1) || !ft_strncmp(line, "0", 1))
+		return (true);
+	if (!ft_strncmp(line, "N", 1) && ft_strncmp(line, "NO", 2))
+		return (true);
+	if (!ft_strncmp(line, "S", 1) && ft_strncmp(line, "SO", 2))
+		return (true);
+	if (!ft_strncmp(line, "W", 1) && ft_strncmp(line, "WE", 2))
+		return (true);
+	if (!ft_strncmp(line, "E", 1) && ft_strncmp(line, "EA", 2))
+		return (true);
+	return (false);
 }

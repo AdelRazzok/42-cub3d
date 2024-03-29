@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:06:56 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 14:17:01 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:22 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 static char	*_preprocess_buffer(char *buffer);
 static void	_post_process_buffer_then_append(char **line_ptr, char *buffer);

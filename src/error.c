@@ -6,13 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 11:16:02 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:28:34 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "error.h"
-#include "utils.h"
 
 static void	_print_error(const char *msg);
 
@@ -24,6 +22,8 @@ void	error(t_error error_code)
 		_print_error(MSG_EXTENSION);
 	else if (error_code == ERR_FILE)
 		_print_error(MSG_FILE);
+	else if (error_code == ERR_DUPLICATE)
+		_print_error(MSG_DUPLICATE);
 	exit(1);
 }
 
@@ -50,4 +50,10 @@ static void	_print_error(const char *msg)
 
 	msg_len = ft_strlen(msg);
 	write(STDERR_FILENO, msg, msg_len);
+}
+
+void	free_and_error(t_error error_code, t_map *fmap)
+{
+	free_map(fmap);
+	error(error_code);
 }

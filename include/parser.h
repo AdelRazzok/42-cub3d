@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/28 17:42:39 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 11:45:55 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,18 @@ void		parse_map(char *path, t_map *map);
 /*                                                                            */
 /* ************************************************************************** */
 
+void		_handle_element(char *line, t_map *fmap);
+void		_handle_map(char *line, t_map *fmap);
+
+/* ************************************************************************** */
+/*                                                                            */
+/* parser_utils                                                               */
+/*                                                                            */
+/* ************************************************************************** */
+
 int			full_map_len(char *path);
 char		**full_map_to_array(char *path);
-int			is_element(char *str);
+bool		is_element(char *line);
+bool		is_map_char(char *line);
 
 #endif

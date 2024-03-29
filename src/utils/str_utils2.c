@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:34:50 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 16:35:38 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:31 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -31,4 +30,22 @@ char	*ft_strdup(const char *s)
 	}
 	dup[i] = '\0';
 	return (dup);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+		i++;
+	if (i == n)
+		return (0);
+	return (s1[i] - s2[i]);
+}
+
+void	skip_spaces(char **str)
+{
+	while (**str == ' ')
+		(*str)++;
 }

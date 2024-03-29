@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:16:02 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 14:21:38 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:17 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

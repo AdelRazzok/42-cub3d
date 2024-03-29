@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:47:14 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 17:26:32 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 11:58:11 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,7 @@
 
 # define FD_LIMIT 1024
 
-typedef struct s_gnl
-{
-	char	*line;
-	char	*newline;
-	int		count;
-	int		to_copy;
-}			t_gnl;
+# include "parser.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -33,14 +27,16 @@ typedef struct s_gnl
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t		ft_strlen(const char *str);
-int			ft_strcmp(const char *s1, const char *s2);
-size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strchr(const char *str, char c);
-char		**ft_split(char const *s, char c);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*ft_strdup(const char *s);
+size_t	ft_strlen(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *str, char c);
+char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	skip_spaces(char **str);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -48,9 +44,9 @@ char		*ft_strdup(const char *s);
 /*                                                                            */
 /* ************************************************************************** */
 
-void		*ft_memcpy(void *dst, const void *src, size_t n);
-void		ft_strcat(char **dst_ptr, const char *src);
-char		*get_next_line(int fd);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	ft_strcat(char **dst_ptr, const char *src);
+char	*get_next_line(int fd);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -58,8 +54,9 @@ char		*get_next_line(int fd);
 /*                                                                            */
 /* ************************************************************************** */
 
-struct s_map	*init_map(void);
-void			free_map(struct s_map *fmap);
-void			free_array(char **array);
+t_map	*init_map(void);
+void	free_map(t_map *fmap);
+void	free_array(char **array);
+void	print_map(t_map *fmap);
 
 #endif

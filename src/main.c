@@ -6,14 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/28 17:42:45 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:18:24 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "error.h"
-#include "parser.h"
-#include "utils.h"
 
 int	main(int argc, char **argv)
 {

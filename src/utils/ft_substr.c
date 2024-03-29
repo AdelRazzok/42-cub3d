@@ -6,12 +6,11 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:42:43 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/27 13:53:40 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:17:13 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "utils.h"
 
 static char	*_start_check(void);
 static int	_len_check(char const *s, unsigned int start, size_t len);
