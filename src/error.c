@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 12:28:34 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/30 13:25:40 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ void	error(t_error error_code)
 		_print_error(MSG_NB_ARGS);
 	else if (error_code == ERR_EXTENSION)
 		_print_error(MSG_EXTENSION);
+	else if (error_code == ERR_MALLOC)
+		_print_error(MSG_MALLOC);
 	else if (error_code == ERR_FILE)
 		_print_error(MSG_FILE);
 	else if (error_code == ERR_DUPLICATE)
 		_print_error(MSG_DUPLICATE);
+	else if (error_code == ERR_MISSSING_ELEMENT)
+		_print_error(MSG_MISSSING_ELEMENT);
 	exit(1);
 }
 

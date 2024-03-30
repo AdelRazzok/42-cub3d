@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 17:05:21 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/30 13:27:45 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_array(char **array)
 	int	i;
 
 	i = 0;
-	while (array && array[i])
+	while (array[i])
 	{
 		free(array[i]);
 		i++;
@@ -55,6 +55,10 @@ void	free_map(t_map *fmap)
 		free(fmap->west_path);
 	if (fmap->east_path)
 		free(fmap->east_path);
+	if (fmap->floor_color)
+		free(fmap->floor_color);
+	if (fmap->ceiling_color)
+		free(fmap->ceiling_color);
 	free(fmap);
 }
 
@@ -66,9 +70,10 @@ void	free_map(t_map *fmap)
 
 void	print_map(t_map *fmap)
 {
-	printf("\nPRINT T_MAP : \n");
+	int	i;
 
-	int	i = 0;
+	i = 0;
+	printf("\nPRINT T_MAP : \n");
 	while (fmap->map && fmap->map[i])
 	{
 		printf("map[%d]: %s\n", i, fmap->map[i]);

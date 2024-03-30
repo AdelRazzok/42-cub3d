@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 10:57:07 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 17:21:33 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/30 13:16:57 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	_handle_map(char *line, t_map *fmap)
 		return ;
 	}
 	tmp = arrdup(fmap->map, fmap->map_len);
-	free(fmap->map);
+	free_array(fmap->map);
 	fmap->map = tmp;
 	fmap->map[fmap->map_len - 1] = ft_strdup(line);
 	fmap->map[fmap->map_len] = NULL;
