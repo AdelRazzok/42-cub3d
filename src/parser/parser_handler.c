@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 10:57:07 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/30 13:16:57 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/31 15:18:55 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	_handle_color(char *line, t_map *fmap);
 static void	_check_duplicate(char *line, t_map *fmap);
 static void	_skip_id_and_spaces(char **line);
 
-void	_handle_element(char *line, t_map *fmap)
+void	handle_element(char *line, t_map *fmap)
 {
 	_check_duplicate(line, fmap);
 	if (!ft_strncmp(line, "NO", 2))
@@ -43,11 +43,11 @@ void	_handle_element(char *line, t_map *fmap)
 		_handle_color(line, fmap);
 }
 
-void	_handle_map(char *line, t_map *fmap)
+void	handle_map(char *line, t_map *fmap)
 {
 	char	**tmp;
 
-	fmap->map_len++;
+	fmap->map_height++;
 	if (!fmap->map)
 	{
 		fmap->map = (char **)malloc(sizeof(char *) * 2);
@@ -55,11 +55,11 @@ void	_handle_map(char *line, t_map *fmap)
 		fmap->map[1] = NULL;
 		return ;
 	}
-	tmp = arrdup(fmap->map, fmap->map_len);
+	tmp = arrdup(fmap->map, fmap->map_height);
 	free_array(fmap->map);
 	fmap->map = tmp;
-	fmap->map[fmap->map_len - 1] = ft_strdup(line);
-	fmap->map[fmap->map_len] = NULL;
+	fmap->map[fmap->map_height - 1] = ft_strdup(line);
+	fmap->map[fmap->map_height] = NULL;
 }
 
 static void	_handle_color(char *line, t_map *fmap)

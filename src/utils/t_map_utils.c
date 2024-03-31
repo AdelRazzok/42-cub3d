@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/30 13:27:45 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/31 14:33:30 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ t_map	*init_map(void)
 	if (!fmap)
 		error(ERR_MALLOC);
 	fmap->map = NULL;
+	fmap->map_height = 0;
 	fmap->north_path = NULL;
 	fmap->south_path = NULL;
 	fmap->west_path = NULL;
 	fmap->east_path = NULL;
 	fmap->floor_color = NULL;
 	fmap->ceiling_color = NULL;
-	fmap->map_len = 0;
 	return (fmap);
 }
 

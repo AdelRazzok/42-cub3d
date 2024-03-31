@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 13:34:06 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/31 18:10:35 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,37 @@
 typedef struct s_map
 {
 	char	**map;
+	int		map_height;
 	char	*north_path;
 	char	*south_path;
 	char	*west_path;
 	char	*east_path;
 	char	*floor_color;
 	char	*ceiling_color;
-	int		map_len;
 }			t_map;
 
 void		parse_map(char *path, t_map *map);
 
 /* ************************************************************************** */
 /*                                                                            */
+/* parser                                                              */
+/*                                                                            */
+/* ************************************************************************** */
+
+void		handle_element(char *line, t_map *fmap);
+void		handle_map(char *line, t_map *fmap);
+
+/* ************************************************************************** */
+/*                                                                            */
 /* parser_utils                                                               */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		_handle_element(char *line, t_map *fmap);
-void		_handle_map(char *line, t_map *fmap);
-
-/* ************************************************************************** */
-/*                                                                            */
-/* parser_utils                                                               */
-/*                                                                            */
-/* ************************************************************************** */
-
-int			full_map_len(char *path);
-char		**full_map_to_array(char *path);
 bool		is_element(char *line);
 bool		is_map_char(char *line);
+bool		is_valid_char(char c);
+bool		is_line_closed(char *line);
+bool		is_position_surrounded(t_map *fmap, int x, int y);
+void		check_start_point(t_map *fmap);
 
 #endif

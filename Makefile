@@ -17,7 +17,10 @@ UTILS         = str_utils \
 				t_map_utils
 
 PARSER_DIR	  = parser/
-PARSER		  = parser parser_utils parser_handler
+PARSER		  = parser \
+				parser_utils \
+				parser_utils2 \
+				parser_handler
 
 SRC_FILES    += main error
 SRC_FILES    += $(addprefix $(UTILS_DIR), $(UTILS))

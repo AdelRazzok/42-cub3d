@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/30 13:25:40 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/31 15:20:29 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	error(t_error error_code)
 		_print_error(MSG_DUPLICATE);
 	else if (error_code == ERR_MISSSING_ELEMENT)
 		_print_error(MSG_MISSSING_ELEMENT);
+	else if (error_code == ERR_INVALID_MAP)
+		_print_error(MSG_INVLID_MAP);
 	exit(1);
 }
 

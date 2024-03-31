@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:58:26 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/30 13:27:04 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/03/31 15:10:07 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define MSG_MALLOC "Error\nMap memory allocation failed\n"
 # define MSG_DUPLICATE "Error\nDuplicate element\n"
 # define MSG_MISSSING_ELEMENT "Error\nMissing element\n"
+# define MSG_INVLID_MAP "Error\nInvalid map\n"
 
 # include "parser.h"
 
@@ -29,7 +30,8 @@ typedef enum e_error
 	ERR_FILE,
 	ERR_MALLOC,
 	ERR_DUPLICATE,
-	ERR_MISSSING_ELEMENT
+	ERR_MISSSING_ELEMENT,
+	ERR_INVALID_MAP
 }		t_error;
 
 void	error(t_error error_code);
