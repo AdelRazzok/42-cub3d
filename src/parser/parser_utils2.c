@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:06:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/31 18:08:11 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/02 13:26:50 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	check_start_point(t_map *fmap)
 		}
 		i++;
 	}
-    if (count != 1)
-        free_and_error(ERR_INVALID_MAP, fmap);
+	if (count != 1)
+		free_and_error(ERR_INVALID_MAP, fmap);
 }

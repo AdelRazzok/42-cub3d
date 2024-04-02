@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:58:26 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/31 15:10:07 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/02 13:27:47 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef enum e_error
 
 void	error(t_error error_code);
 void	check_file(const char *path, const char *extension);
+void	print_error(const char *msg);
 void	free_and_error(t_error error_code, t_map *fmap);
 
 #endif

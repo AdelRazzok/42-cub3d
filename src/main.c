@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/29 17:49:49 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/02 13:46:15 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	fmap = init_map();
 	parse_map(argv[1], fmap);
 	print_map(fmap);
+	open_window();
 	free_map(fmap);
 	return (0);
 }

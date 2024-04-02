@@ -6,15 +6,31 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/02 12:52:26 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/02 13:46:03 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
 
+# define TITLE "Cub3D"
+# define WIDTH 800
+# define HEIGHT 600
+
+# include "MLX42.h"
+
 typedef struct s_mlx
 {
-}	t_mlx;
+	mlx_image_t	*img;
+	mlx_t		*mlx_ptr;
+}				t_mlx;
+
+/* ************************************************************************** */
+/*                                                                            */
+/* scene                                                                      */
+/*                                                                            */
+/* ************************************************************************** */
+
+int				open_window(void);
 
 #endif

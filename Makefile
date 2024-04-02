@@ -1,6 +1,7 @@
 NAME          = cub3D
 INCLUDES      = include/
-HEADER        = -I $(INCLUDES)
+HEADER        = -I $(INCLUDES)  -I MLX42/include/MLX42
+LIBS          = -L MLX42/build -lmlx42 -ldl -lglfw -pthread -lm
 SRC_DIR       = src/
 OBJ_DIR       = obj/
 
@@ -22,9 +23,13 @@ PARSER		  = parser \
 				parser_utils2 \
 				parser_handler
 
+SCENE_DIR	 = scene/
+SCENE        = commands
+
 SRC_FILES    += main error
 SRC_FILES    += $(addprefix $(UTILS_DIR), $(UTILS))
 SRC_FILES    += $(addprefix $(PARSER_DIR), $(PARSER))
+SRC_FILES    += $(addprefix $(SCENE_DIR), $(SCENE))
 
 SRC           = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ           = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -36,7 +41,7 @@ OBJ_CACHE     = .cache_exists
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-					$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+					$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 					@echo "$(NAME) compiled!"
 
 
@@ -48,6 +53,7 @@ $(OBJ_CACHE):
 					@mkdir -p $(OBJ_DIR)
 					@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
 					@mkdir -p $(OBJ_DIR)$(PARSER_DIR)
+					@mkdir -p $(OBJ_DIR)$(SCENE_DIR)
 
 clean:
 					@rm -rf $(OBJ_DIR)

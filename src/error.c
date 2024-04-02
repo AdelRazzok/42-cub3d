@@ -6,30 +6,30 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/31 15:20:29 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/02 13:45:02 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	_print_error(const char *msg);
+void	print_error(const char *msg);
 
 void	error(t_error error_code)
 {
 	if (error_code == ERR_NB_ARGS)
-		_print_error(MSG_NB_ARGS);
+		print_error(MSG_NB_ARGS);
 	else if (error_code == ERR_EXTENSION)
-		_print_error(MSG_EXTENSION);
+		print_error(MSG_EXTENSION);
 	else if (error_code == ERR_MALLOC)
-		_print_error(MSG_MALLOC);
+		print_error(MSG_MALLOC);
 	else if (error_code == ERR_FILE)
-		_print_error(MSG_FILE);
+		print_error(MSG_FILE);
 	else if (error_code == ERR_DUPLICATE)
-		_print_error(MSG_DUPLICATE);
+		print_error(MSG_DUPLICATE);
 	else if (error_code == ERR_MISSSING_ELEMENT)
-		_print_error(MSG_MISSSING_ELEMENT);
+		print_error(MSG_MISSSING_ELEMENT);
 	else if (error_code == ERR_INVALID_MAP)
-		_print_error(MSG_INVLID_MAP);
+		print_error(MSG_INVLID_MAP);
 	exit(1);
 }
 
@@ -50,7 +50,7 @@ void	check_file(const char *path, const char *extension)
 	close(fd);
 }
 
-static void	_print_error(const char *msg)
+void	print_error(const char *msg)
 {
 	int	msg_len;
 
