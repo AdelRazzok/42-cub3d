@@ -17,7 +17,8 @@ UTILS           = str_utils \
 				  ft_substr \
 				  get_next_line \
 				  get_next_line_utils \
-				  t_map_utils
+				  t_map_utils \
+				  t_mlx_utils
 
 PARSER_DIR	    = parser/
 PARSER		    = parser \
@@ -26,7 +27,7 @@ PARSER		    = parser \
 		  		  parser_handler
 
 SCENE_DIR	    = scene/
-SCENE           = window commands
+SCENE           = game commands
 
 SRC_FILES      += main error
 SRC_FILES      += $(addprefix $(UTILS_DIR), $(UTILS))
@@ -43,11 +44,12 @@ OBJ_CACHE       = .cache_exists
 all:			libmlx $(NAME)
 
 libmlx:
-					@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+					@cmake $(LIBMLX) -B $(LIBMLX)/build > /dev/null  && make -C $(LIBMLX)/build -j4 > /dev/null
+					@echo "\033[0;32mMLX42 compiled!\033[0m"
 
 $(NAME):		$(OBJ)
-					$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
-					@echo "$(NAME) compiled!"
+					@$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
+					@echo "\033[0;32m$(NAME) compiled!\033[0m"
 
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJ_CACHE)
@@ -73,4 +75,4 @@ fclean:			clean
 re:				fclean all
 					@echo "Cleaned and rebuilt everything for $(NAME)!"
 
-.PHONY:			all clean fclean re
+.PHONY:			all libmlx clean fclean re

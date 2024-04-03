@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:51:46 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/02 13:20:09 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/03 14:31:03 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include <fcntl.h>
+# include <math.h>
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>

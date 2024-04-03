@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:06:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/02 13:26:50 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/03 16:36:18 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ void	check_start_point(t_map *fmap)
 		{
 			if (fmap->map[i][j] == 'N' || fmap->map[i][j] == 'S'
 				|| fmap->map[i][j] == 'W' || fmap->map[i][j] == 'E')
+			{
+				fmap->player_x = j;
+				fmap->player_y = i;
 				count++;
+			}
 			j++;
 		}
 		i++;

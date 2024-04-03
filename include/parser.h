@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/31 18:10:35 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/03 16:31:00 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ typedef struct s_map
 {
 	char	**map;
 	int		map_height;
+	int		player_x;
+	int		player_y;
 	char	*north_path;
 	char	*south_path;
 	char	*west_path;
@@ -29,7 +31,7 @@ void		parse_map(char *path, t_map *map);
 
 /* ************************************************************************** */
 /*                                                                            */
-/* parser                                                              */
+/* parser                                                                     */
 /*                                                                            */
 /* ************************************************************************** */
 
