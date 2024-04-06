@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 12:56:57 by arazzok          ###   ########.fr       */
+/*   Created: 2024/04/06 16:34:13 by arazzok           #+#    #+#             */
+/*   Updated: 2024/04/06 17:08:55 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+void    cast_rays(t_mlx *mlx)
 {
-	t_map	*fmap;
-	t_mlx	*mlx;
+	double  h_inter;
+	double  v_inter;
+	int     ray;
 
-	if (argc != 2)
-		error(ERR_NB_ARGS);
-	check_file(argv[1], ".cub");
-	fmap = init_map();
-	parse_map(argv[1], fmap);
-	print_map(fmap);
-	mlx = init_mlx(fmap);
-	game_loop(mlx);
-	close_game(mlx);
-	return (0);
+	ray = 0;
+	mlx->ray->angle = mlx->player->angle - (mlx->player->fov_rad / 2);
+	while (ray < WIDTH)
+	{
+		
+	}
 }

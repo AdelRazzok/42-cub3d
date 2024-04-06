@@ -27,7 +27,7 @@ PARSER		    = parser \
 		  		  parser_handler
 
 SCENE_DIR	    = scene/
-SCENE           = game commands
+SCENE           = game commands move
 
 SRC_FILES      += main error
 SRC_FILES      += $(addprefix $(UTILS_DIR), $(UTILS))

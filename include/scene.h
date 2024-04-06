@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/03 17:40:48 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/06 17:01:51 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,20 @@
 
 typedef struct s_player
 {
-	int x; // x position in pixels
-	int y; // y position in pixels
+	int			x; // x position in pixels
+	int			y; // y position in pixels
 	double		angle;
-	float fov_rad; // field of view in radians
+	float		fov_rad; // field of view in radians
+	int			rot_f;     // rotation flag
+	int			lr_f;      // left-right flag
+	int			ud_f;      // up-down flag
 }				t_player;
 
 typedef struct s_ray
 {
 	double		angle;
-	double distance; // distance to the wall
+	double		distance; // distance to the wall
+	int			w_f; // wall flag
 }				t_ray;
 
 typedef struct s_mlx
@@ -55,6 +59,7 @@ typedef struct s_mlx
 
 void			game_loop(t_mlx *mlx);
 void			render(void *param);
+void			close_game(t_mlx *mlx);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -62,6 +67,22 @@ void			render(void *param);
 /*                                                                            */
 /* ************************************************************************** */
 
-void			ft_hook(void *param);
+void			on_key_press(mlx_key_data_t keydata, void *param);
+
+/* ************************************************************************** */
+/*                                                                            */
+/* moves                                                                      */
+/*                                                                            */
+/* ************************************************************************** */
+
+void			handle_moves(t_mlx *mlx, double move_x, double move_y);
+
+/* ************************************************************************** */
+/*                                                                            */
+/* raycasting                                                                 */
+/*                                                                            */
+/* ************************************************************************** */
+
+void			cast_rays(t_mlx *mlx);
 
 #endif
