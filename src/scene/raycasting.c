@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:34:13 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 14:01:05 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 16:06:22 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static float	_get_h_inter(t_mlx *mlx, float angle);
 static float	_get_v_inter(t_mlx *mlx, float angle);
-static float	_normalize_angle(float angle);
+float			normalize_angle(float angle);
 
 void	cast_rays(t_mlx *mlx)
 {
@@ -27,8 +27,8 @@ void	cast_rays(t_mlx *mlx)
 	while (ray < WIDTH)
 	{
 		mlx->ray->w_f = 0;
-		h_inter = _get_h_inter(mlx, _normalize_angle(mlx->ray->angle));
-		v_inter = _get_v_inter(mlx, _normalize_angle(mlx->ray->angle));
+		h_inter = _get_h_inter(mlx, normalize_angle(mlx->ray->angle));
+		v_inter = _get_v_inter(mlx, normalize_angle(mlx->ray->angle));
 		if (h_inter < v_inter)
 		{
 			mlx->ray->distance = h_inter;
@@ -40,6 +40,15 @@ void	cast_rays(t_mlx *mlx)
 		ray++;
 		mlx->ray->angle += (mlx->player->fov_rad / WIDTH);
 	}
+}
+
+float	normalize_angle(float angle)
+{
+	if (angle < 0)
+		angle += 2 * M_PI;
+	if (angle > 2 * M_PI)
+		angle -= 2 * M_PI;
+	return (angle);
 }
 
 static float	_get_h_inter(t_mlx *mlx, float angle)
@@ -88,13 +97,4 @@ static float	_get_v_inter(t_mlx *mlx, float angle)
 		v_y += y_step;
 	}
 	return (sqrt(pow(v_x - mlx->player->x, 2) + pow(v_y - mlx->player->y, 2)));
-}
-
-static float	_normalize_angle(float angle)
-{
-	if (angle < 0)
-		angle += 2 * M_PI;
-	if (angle > 2 * M_PI)
-		angle -= 2 * M_PI;
-	return (angle);
 }

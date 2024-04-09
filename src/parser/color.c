@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 12:51:46 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 17:20:45 by arazzok          ###   ########.fr       */
+/*   Created: 2024/04/09 18:07:26 by arazzok           #+#    #+#             */
+/*   Updated: 2024/04/09 19:01:55 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d.h"
+#include <stdbool.h>
 
-# include <fcntl.h>
-# include <math.h>
-# include <stdbool.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "MLX42.h"
-# include "error.h"
-# include "parser.h"
-# include "utils.h"
-# include "scene.h"
-# include "game.h"
+bool	is_format_correct(const char *str)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (str == NULL)
+		return (false);
+	while (str[i] != '\0')
+	{
+		if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ',')
+			return (false);
+		i++;
+	}
+	return (true);
+}

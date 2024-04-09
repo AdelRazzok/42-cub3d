@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:58:26 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/03 16:13:29 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 18:55:09 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define MSG_DUPLICATE "Error\nDuplicate element\n"
 # define MSG_MISSSING_ELEMENT "Error\nMissing element\n"
 # define MSG_INVLID_MAP "Error\nInvalid map\n"
+# define MSG_WRONG_COLOR "Error\nWrong color format\n"
 
 # include "parser.h"
 
@@ -31,6 +32,7 @@ typedef enum e_error
 	ERR_MALLOC,
 	ERR_DUPLICATE,
 	ERR_MISSSING_ELEMENT,
+	ERR_WRONG_COLOR,
 	ERR_INVALID_MAP
 }		t_error;
 

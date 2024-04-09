@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:34:50 by arazzok           #+#    #+#             */
-/*   Updated: 2024/03/31 16:02:29 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 18:44:42 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,29 @@ char	**arrdup(char **src, int size)
 	}
 	array[i] = NULL;
 	return (array);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	value;
+	int	sign;
+
+	value = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		++str;
+	if (*str == '-')
+	{
+		++str;
+		sign = -sign;
+	}
+	else if (*str == '+')
+		++str;
+	while (*str >= '0' && *str <= '9')
+		value = 10 * value + (*str++) - '0';
+	if (value * sign < 0)
+		return (0);
+	if (value * sign > 255)
+		return (255);
+	return (value * sign);
 }

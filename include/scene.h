@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 14:25:04 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 17:17:54 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define TILE_SIZE 30
 # define FOV 60 // Field of view
 
-# include "MLX42.h"
 # include "parser.h"
 
 typedef struct s_player
@@ -56,6 +55,7 @@ typedef struct s_mlx
 /* ************************************************************************** */
 
 void			cast_rays(t_mlx *mlx);
+float			normalize_angle(float angle);
 int				is_x_unit_circle(float angle);
 int				is_y_unit_circle(float angle);
 int				h_inter_check(float angle, float *inter, float *step);

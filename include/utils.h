@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:47:14 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/03 17:54:52 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 17:58:50 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char		*ft_strdup(const char *s);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		skip_spaces(char **str);
 char		**arrdup(char **src, int size);
+int			ft_atoi(const char *str);
 
 /* ************************************************************************** */
 /*                                                                            */

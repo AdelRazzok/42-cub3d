@@ -24,7 +24,8 @@ PARSER_DIR	    = parser/
 PARSER		    = parser \
 				  parser_utils \
 				  parser_utils2 \
-				  parser_handler
+				  parser_handler \
+				  color
 
 GAME_DIR	    = game/
 GAME            = game \
