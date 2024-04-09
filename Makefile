@@ -22,16 +22,25 @@ UTILS           = str_utils \
 
 PARSER_DIR	    = parser/
 PARSER		    = parser \
-		  		  parser_utils \
-		  		  parser_utils2 \
-		  		  parser_handler
+				  parser_utils \
+				  parser_utils2 \
+				  parser_handler
+
+GAME_DIR	    = game/
+GAME            = game \
+				  commands \
+				  move
 
 SCENE_DIR	    = scene/
-SCENE           = game commands move
+SCENE           = raycasting \
+				  raycasting_utils \
+				  render
+
 
 SRC_FILES      += main error
 SRC_FILES      += $(addprefix $(UTILS_DIR), $(UTILS))
 SRC_FILES      += $(addprefix $(PARSER_DIR), $(PARSER))
+SRC_FILES      += $(addprefix $(GAME_DIR), $(GAME))
 SRC_FILES      += $(addprefix $(SCENE_DIR), $(SCENE))
 
 SRC             = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
@@ -60,6 +69,7 @@ $(OBJ_CACHE):
 					@mkdir -p $(OBJ_DIR)
 					@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
 					@mkdir -p $(OBJ_DIR)$(PARSER_DIR)
+					@mkdir -p $(OBJ_DIR)$(GAME_DIR)
 					@mkdir -p $(OBJ_DIR)$(SCENE_DIR)
 
 clean:

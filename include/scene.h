@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 17:01:51 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:25:04 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # define HEIGHT 1080
 # define TILE_SIZE 30
 # define FOV 60 // Field of view
-# define ROTATION_SPEED 0.045
-# define PLAYER_SPEED 4
 
 # include "MLX42.h"
 # include "parser.h"
@@ -30,9 +28,9 @@ typedef struct s_player
 	int			y; // y position in pixels
 	double		angle;
 	float		fov_rad; // field of view in radians
-	int			rot_f;     // rotation flag
-	int			lr_f;      // left-right flag
-	int			ud_f;      // up-down flag
+	int			rot_f; // rotation flag
+	int			lr_f; // left-right flag
+	int			ud_f; // up-down flag
 }				t_player;
 
 typedef struct s_ray
@@ -53,36 +51,15 @@ typedef struct s_mlx
 
 /* ************************************************************************** */
 /*                                                                            */
-/* game                                                                       */
-/*                                                                            */
-/* ************************************************************************** */
-
-void			game_loop(t_mlx *mlx);
-void			render(void *param);
-void			close_game(t_mlx *mlx);
-
-/* ************************************************************************** */
-/*                                                                            */
-/* commands                                                                   */
-/*                                                                            */
-/* ************************************************************************** */
-
-void			on_key_press(mlx_key_data_t keydata, void *param);
-
-/* ************************************************************************** */
-/*                                                                            */
-/* moves                                                                      */
-/*                                                                            */
-/* ************************************************************************** */
-
-void			handle_moves(t_mlx *mlx, double move_x, double move_y);
-
-/* ************************************************************************** */
-/*                                                                            */
 /* raycasting                                                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
 void			cast_rays(t_mlx *mlx);
+int				is_x_unit_circle(float angle);
+int				is_y_unit_circle(float angle);
+int				h_inter_check(float angle, float *inter, float *step);
+int				v_inter_check(float angle, float *inter, float *step);
+int				wall_hit(t_mlx *mlx, float x, float y);
 
 #endif

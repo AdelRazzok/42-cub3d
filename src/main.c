@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 12:56:57 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:21:27 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	parse_map(argv[1], fmap);
 	print_map(fmap);
 	mlx = init_mlx(fmap);
-	game_loop(mlx);
+	start_game(mlx);
 	close_game(mlx);
 	return (0);
 }

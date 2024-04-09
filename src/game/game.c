@@ -6,21 +6,21 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:21:32 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 16:52:36 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:20:47 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	game_loop(t_mlx *mlx)
+void	start_game(t_mlx *mlx)
 {
 	mlx->mlx_ptr = mlx_init(WIDTH, HEIGHT, TITLE, false);
-	mlx_loop_hook(mlx->mlx_ptr, render, mlx);
+	mlx_loop_hook(mlx->mlx_ptr, game_loop, mlx);
 	mlx_key_hook(mlx->mlx_ptr, on_key_press, mlx);
 	mlx_loop(mlx->mlx_ptr);
 }
 
-void	render(void *param)
+void	game_loop(void *param)
 {
 	t_mlx	*mlx;
 

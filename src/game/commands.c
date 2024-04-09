@@ -6,13 +6,13 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:16:22 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 16:21:36 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/09 12:41:44 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	on_release_key(mlx_key_data_t keydata, t_mlx *mlx)
+void	on_key_release(mlx_key_data_t keydata, t_mlx *mlx)
 {
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
 		mlx->player->lr_f = 0;
@@ -51,5 +51,5 @@ void	on_key_press(mlx_key_data_t keydata, void *param)
 		mlx->player->rot_f = 1;
 	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		mlx->player->rot_f = -1;
-	on_release_key(keydata, mlx);
+	on_key_release(keydata, mlx);
 }
