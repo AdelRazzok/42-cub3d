@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 11:20:43 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/03 16:36:35 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/11 12:49:00 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	parse_map(char *path, t_map *fmap)
 		line = get_next_line(fd);
 	}
 	_check_missing_elements(fmap);
+	check_colors(fmap);
 	_check_map(fmap);
 	close(fd);
 	free(line);
@@ -45,7 +46,10 @@ static void	_check_line(char *line, t_map *fmap)
 	while (line[i])
 	{
 		if ((line[i] < 32 || line[i] > 126) && line[i] != '\n')
+		{
+			free(line);
 			free_and_error(ERR_INVALID_MAP, fmap);
+		}
 		i++;
 	}
 }

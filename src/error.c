@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 18:56:15 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/11 13:05:00 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	check_file(const char *path, const char *extension)
 
 	path_len = ft_strlen(path);
 	extension_len = ft_strlen(extension);
-	if (path_len < extension_len
-		|| ft_strcmp(path + path_len - extension_len, extension) != 0)
+	if (path_len < extension_len || ft_strcmp(path + path_len - extension_len,
+			extension) != 0)
 		error(ERR_EXTENSION);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)

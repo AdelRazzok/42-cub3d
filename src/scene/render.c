@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:16:35 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 18:59:02 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/11 12:50:40 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,18 @@ void	render(t_mlx *mlx, int ray)
 		t_pixel = 0;
 	draw_floor_and_ceiling(mlx, ray, t_pixel, b_pixel);
 }
+
+// static unsigned int	_color_to_hexa(char *color)
+// {
+// 	// split color on ,
+// 	char	**split;
+// 	int		i;
+
+// 	i = 0;
+// 	split = ft_split(color, ',');
+// 	// while
+
+
+// 	// free the split
+// 	// return hexa value
+// }

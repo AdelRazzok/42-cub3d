@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 18:58:32 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/11 13:09:01 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool		is_map_char(char *line);
 bool		is_valid_char(char c);
 bool		is_line_closed(char *line);
 bool		is_position_surrounded(t_map *fmap, int x, int y);
-bool		is_format_correct(const char *str);
+void		check_colors(t_map *fmap);
 void		check_start_point(t_map *fmap);
 
 #endif
