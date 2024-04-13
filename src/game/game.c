@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:21:32 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 14:20:47 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 14:31:50 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	start_game(t_mlx *mlx)
 {
 	mlx->mlx_ptr = mlx_init(WIDTH, HEIGHT, TITLE, false);
-	mlx_loop_hook(mlx->mlx_ptr, game_loop, mlx);
 	mlx_key_hook(mlx->mlx_ptr, on_key_press, mlx);
+	mlx_loop_hook(mlx->mlx_ptr, game_loop, mlx);
 	mlx_loop(mlx->mlx_ptr);
 }
 

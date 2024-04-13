@@ -1,1 +1,1 @@
-valgrind --leak-check=full --show-reachable=yes --show-leak-kinds=all --keep-debuginfo=yes --suppressions=./valgrind_files/mlx42.supp ./cub3D maps_exemple/medium/map2.cub
+valgrind --leak-check=full --show-reachable=yes --show-leak-kinds=all --keep-debuginfo=yes --suppressions=./valgrind-files/mlx42.supp ./cub3D map/valid.cub

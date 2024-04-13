@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:20:31 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 13:10:08 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 14:48:13 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	h_inter_check(float angle, float *inter, float *step)
 		*inter += TILE_SIZE;
 		return (-1);
 	}
-	*step = -1;
+	*step *= -1;
 	return (1);
 }
 
@@ -44,7 +44,7 @@ int	v_inter_check(float angle, float *inter, float *step)
 		*inter += TILE_SIZE;
 		return (-1);
 	}
-	*step = -1;
+	*step *= -1;
 	return (1);
 }
 
@@ -57,7 +57,7 @@ int	wall_hit(t_mlx *mlx, float x, float y)
 		return (0);
 	map_x = floor(x / TILE_SIZE);
 	map_y = floor(y / TILE_SIZE);
-	if (map_y >= mlx->fmap->map_height)
+	if (map_y >= mlx->fmap->map_height) // ! no regular width
 		return (0);
 	if (mlx->fmap->map[map_y] && map_x <= (int)ft_strlen(mlx->fmap->map[map_y]))
 		if (mlx->fmap->map[map_y][map_x] == '1')

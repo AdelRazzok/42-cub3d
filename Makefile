@@ -18,7 +18,8 @@ UTILS           = str_utils \
 				  get_next_line \
 				  get_next_line_utils \
 				  t_map_utils \
-				  t_mlx_utils
+				  t_mlx_utils \
+				  t_texture_utils
 
 PARSER_DIR	    = parser/
 PARSER		    = parser \
@@ -35,7 +36,8 @@ GAME            = game \
 SCENE_DIR	    = scene/
 SCENE           = raycasting \
 				  raycasting_utils \
-				  render
+				  render \
+				  render_utils
 
 
 SRC_FILES      += main error

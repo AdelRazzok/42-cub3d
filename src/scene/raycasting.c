@@ -6,15 +6,15 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:34:13 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 16:06:22 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 15:23:23 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+float			normalize_angle(float angle);
 static float	_get_h_inter(t_mlx *mlx, float angle);
 static float	_get_v_inter(t_mlx *mlx, float angle);
-float			normalize_angle(float angle);
 
 void	cast_rays(t_mlx *mlx)
 {
@@ -36,7 +36,7 @@ void	cast_rays(t_mlx *mlx)
 		}
 		else
 			mlx->ray->distance = v_inter;
-		// render_wall(mlx, ray);
+		render(mlx, ray);
 		ray++;
 		mlx->ray->angle += (mlx->player->fov_rad / WIDTH);
 	}
@@ -64,14 +64,16 @@ static float	_get_h_inter(t_mlx *mlx, float angle)
 	h_y = floor(mlx->player->y / TILE_SIZE) * TILE_SIZE;
 	h_x = mlx->player->x + (h_y - mlx->player->y) / tan(angle);
 	pixel = h_inter_check(angle, &h_y, &y_step);
-	if ((is_y_unit_circle(angle) && x_step > 0) || (!is_y_unit_circle(angle)
-			&& x_step < 0))
+	if ((is_y_unit_circle(angle) && x_step > 0)
+		|| (!is_y_unit_circle(angle) && x_step < 0))
 		x_step *= -1;
 	while (wall_hit(mlx, h_x, h_y - pixel))
 	{
 		h_x += x_step;
 		h_y += y_step;
 	}
+	mlx->ray->h_x_inter = h_x;
+	mlx->ray->h_y_inter = h_y;
 	return (sqrt(pow(h_x - mlx->player->x, 2) + pow(h_y - mlx->player->y, 2)));
 }
 
@@ -88,13 +90,15 @@ static float	_get_v_inter(t_mlx *mlx, float angle)
 	v_x = floor(mlx->player->x / TILE_SIZE) * TILE_SIZE;
 	v_y = mlx->player->y + (v_x - mlx->player->x) * tan(angle);
 	pixel = v_inter_check(angle, &v_x, &x_step);
-	if ((is_x_unit_circle(angle) && y_step > 0) || (!is_x_unit_circle(angle)
-			&& y_step < 0))
+	if ((is_x_unit_circle(angle) && y_step < 0)
+		|| (!is_x_unit_circle(angle) && y_step > 0))
 		y_step *= -1;
 	while (wall_hit(mlx, v_x - pixel, v_y))
 	{
 		v_x += x_step;
 		v_y += y_step;
 	}
+	mlx->ray->v_x_inter = v_x;
+	mlx->ray->v_y_inter = v_y;
 	return (sqrt(pow(v_x - mlx->player->x, 2) + pow(v_y - mlx->player->y, 2)));
 }

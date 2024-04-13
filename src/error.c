@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/11 13:05:00 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 14:26:44 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	error(t_error error_code)
 		print_error(MSG_MISSSING_ELEMENT);
 	else if (error_code == ERR_WRONG_COLOR)
 		print_error(MSG_WRONG_COLOR);
+	else if (error_code == ERR_RESOLUTION)
+		print_error(MSG_RESOLUTION);
 	else if (error_code == ERR_INVALID_MAP)
 		print_error(MSG_INVLID_MAP);
 	exit(1);

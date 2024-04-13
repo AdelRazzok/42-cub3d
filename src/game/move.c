@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 11:43:41 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/06 16:52:15 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:41:07 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	handle_moves(t_mlx *mlx, double move_x, double move_y)
 	}
 	if (mlx->player->ud_f == 1)
 	{
-		move_x = sin(mlx->player->angle) * PLAYER_SPEED;
-		move_y = cos(mlx->player->angle) * PLAYER_SPEED;
+		move_x = cos(mlx->player->angle) * PLAYER_SPEED;
+		move_y = sin(mlx->player->angle) * PLAYER_SPEED;
 	}
 	if (mlx->player->ud_f == -1)
 	{
-		move_x = -sin(mlx->player->angle) * PLAYER_SPEED;
-		move_y = -cos(mlx->player->angle) * PLAYER_SPEED;
+		move_x = -cos(mlx->player->angle) * PLAYER_SPEED;
+		move_y = -sin(mlx->player->angle) * PLAYER_SPEED;
 	}
 	_move_player(mlx, move_x, move_y);
 }
@@ -57,7 +57,7 @@ static void	_move_player(t_mlx *mlx, double move_x, double move_y)
 	map_y = new_y / TILE_SIZE;
 	if (mlx->fmap->map[map_y][map_x] != '1'
 		&& (mlx->fmap->map[map_y][mlx->player->x / TILE_SIZE] != '1'
-			&& mlx->fmap->map[mlx->player->y / TILE_SIZE][map_x] != '1'))
+		&& mlx->fmap->map[mlx->player->y / TILE_SIZE][map_x] != '1'))
 	{
 		mlx->player->x = new_x;
 		mlx->player->y = new_y;

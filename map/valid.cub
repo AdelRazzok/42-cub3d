@@ -3,8 +3,8 @@ SO ./texture/greystone.png
 WE ./texture/greystone.png
 EA ./texture/greystone.png
 
-F 220,100,0
-C 225,30,0
+F 0,0,255
+C 255,0,0
 
         1111111111111111111111111
         1000000000110000000000001

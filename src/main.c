@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/11 12:48:25 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 14:28:58 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		error(ERR_NB_ARGS);
+	if (HEIGHT > 1440 || WIDTH > 2560 || FOV >= 180 || FOV <= 0)
+		error(ERR_RESOLUTION);
 	check_file(argv[1], ".cub");
 	fmap = init_map();
 	parse_map(argv[1], fmap);

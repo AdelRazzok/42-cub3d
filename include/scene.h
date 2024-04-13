@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/09 17:17:54 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 16:31:04 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,53 @@
 # define SCENE_H
 
 # define TITLE "Cub3D"
-# define WIDTH 1900
-# define HEIGHT 1080
+# define WIDTH 1280
+# define HEIGHT 720
 # define TILE_SIZE 30
-# define FOV 60 // Field of view
+# define FOV 60
 
 # include "parser.h"
 
 typedef struct s_player
 {
-	int			x; // x position in pixels
-	int			y; // y position in pixels
-	double		angle;
-	float		fov_rad; // field of view in radians
-	int			rot_f; // rotation flag
-	int			lr_f; // left-right flag
-	int			ud_f; // up-down flag
-}				t_player;
+	int				x; // x position in pixels
+	int				y; // y position in pixels
+	double			angle;
+	float			fov_rad; // field of view in radians
+	int				rot_f; // rotation flag
+	int				lr_f; // left-right flag
+	int				ud_f; // up-down flag
+}					t_player;
 
 typedef struct s_ray
 {
-	double		angle;
-	double		distance; // distance to the wall
-	int			w_f; // wall flag
-}				t_ray;
+	int				id;
+	double			angle;
+	double			h_x_inter;
+	double			h_y_inter;
+	double			v_x_inter;
+	double			v_y_inter;
+	double			distance; // distance to the wall
+	int				w_f; // wall flag
+}					t_ray;
+
+typedef struct s_texture
+{
+	mlx_texture_t	*north;
+	mlx_texture_t	*south;
+	mlx_texture_t	*east;
+	mlx_texture_t	*west;
+}					t_texture;
 
 typedef struct s_mlx
 {
-	mlx_image_t	*img;
-	mlx_t		*mlx_ptr;
-	t_map		*fmap;
-	t_player	*player;
-	t_ray		*ray;
-}				t_mlx;
+	mlx_image_t		*img;
+	mlx_t			*mlx_ptr;
+	t_map			*fmap;
+	t_player		*player;
+	t_ray			*ray;
+	t_texture		*texture;
+}					t_mlx;
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -54,12 +68,25 @@ typedef struct s_mlx
 /*                                                                            */
 /* ************************************************************************** */
 
-void			cast_rays(t_mlx *mlx);
-float			normalize_angle(float angle);
-int				is_x_unit_circle(float angle);
-int				is_y_unit_circle(float angle);
-int				h_inter_check(float angle, float *inter, float *step);
-int				v_inter_check(float angle, float *inter, float *step);
-int				wall_hit(t_mlx *mlx, float x, float y);
+void				cast_rays(t_mlx *mlx);
+float				normalize_angle(float angle);
+int					is_x_unit_circle(float angle);
+int					is_y_unit_circle(float angle);
+int					h_inter_check(float angle, float *inter, float *step);
+int					v_inter_check(float angle, float *inter, float *step);
+int					wall_hit(t_mlx *mlx, float x, float y);
+
+/* ************************************************************************** */
+/*                                                                            */
+/* render                                                                     */
+/*                                                                            */
+/* ************************************************************************** */
+
+void				render(t_mlx *mlx, int ray);
+int					reverse_bytes(int c);
+unsigned int		get_rgb(int r, int g, int b);
+unsigned int		color_to_hexa(char *color);
+void				init_put_pixel(t_mlx *mlx, int x, int y, int color);
+double				get_texture_offset(t_mlx *mlx, mlx_texture_t *texture);
 
 #endif
