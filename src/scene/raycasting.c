@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:34:13 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 15:23:23 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 00:48:19 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	cast_rays(t_mlx *mlx)
 		mlx->ray->w_f = 0;
 		h_inter = _get_h_inter(mlx, normalize_angle(mlx->ray->angle));
 		v_inter = _get_v_inter(mlx, normalize_angle(mlx->ray->angle));
-		if (h_inter < v_inter)
+		if (v_inter <= h_inter)
+			mlx->ray->distance = v_inter;
+		else
 		{
 			mlx->ray->distance = h_inter;
 			mlx->ray->w_f = 1;
 		}
-		else
-			mlx->ray->distance = v_inter;
 		render(mlx, ray);
 		ray++;
 		mlx->ray->angle += (mlx->player->fov_rad / WIDTH);
@@ -63,9 +63,9 @@ static float	_get_h_inter(t_mlx *mlx, float angle)
 	y_step = TILE_SIZE;
 	h_y = floor(mlx->player->y / TILE_SIZE) * TILE_SIZE;
 	h_x = mlx->player->x + (h_y - mlx->player->y) / tan(angle);
-	pixel = h_inter_check(angle, &h_y, &y_step);
-	if ((is_y_unit_circle(angle) && x_step > 0)
-		|| (!is_y_unit_circle(angle) && x_step < 0))
+	pixel = inter_check(angle, &h_y, &y_step, 1);
+	if ((unit_circle(angle, 'y') && x_step > 0)
+		|| (!unit_circle(angle, 'y') && x_step < 0))
 		x_step *= -1;
 	while (wall_hit(mlx, h_x, h_y - pixel))
 	{
@@ -85,13 +85,13 @@ static float	_get_v_inter(t_mlx *mlx, float angle)
 	float	y_step;
 	int		pixel;
 
-	x_step = TILE_SIZE;
 	y_step = TILE_SIZE * tan(angle);
+	x_step = TILE_SIZE;
 	v_x = floor(mlx->player->x / TILE_SIZE) * TILE_SIZE;
 	v_y = mlx->player->y + (v_x - mlx->player->x) * tan(angle);
-	pixel = v_inter_check(angle, &v_x, &x_step);
-	if ((is_x_unit_circle(angle) && y_step < 0)
-		|| (!is_x_unit_circle(angle) && y_step > 0))
+	pixel = inter_check(angle, &v_x, &x_step, 0);
+	if ((unit_circle(angle, 'x') && y_step < 0)
+		|| (!unit_circle(angle, 'x') && y_step > 0))
 		y_step *= -1;
 	while (wall_hit(mlx, v_x - pixel, v_y))
 	{

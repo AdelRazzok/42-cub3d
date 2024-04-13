@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:44:52 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/11 13:09:01 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 20:27:55 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_map
 {
 	char	**map;
+	int		map_width;
 	int		map_height;
 	int		player_x;
 	int		player_y;

@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:16:35 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 16:38:38 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 00:43:15 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	_draw_wall(t_mlx *mlx, int t_pixel, int b_pixel, double wall_height)
 	double			x_offset;
 	double			y_offset;
 	double			scalling_factor;
+	long long int	pixel_index;
 
 	texture = get_texture(mlx);
 	text_pixels = (uint32_t *)texture->pixels;
@@ -56,9 +57,10 @@ static void	_draw_wall(t_mlx *mlx, int t_pixel, int b_pixel, double wall_height)
 		y_offset = 0;
 	while (t_pixel < b_pixel)
 	{
-		init_put_pixel(mlx, mlx->ray->id, t_pixel,
-			reverse_bytes(text_pixels[(int)y_offset * texture->width
-				+ (int)x_offset]));
+		pixel_index = (int)y_offset * texture->width + (int)x_offset;
+		if (pixel_index < INT32_MAX)
+			init_put_pixel(mlx, mlx->ray->id, t_pixel,
+				reverse_bytes(text_pixels[pixel_index]));
 		y_offset += scalling_factor;
 		t_pixel++;
 	}
@@ -82,14 +84,14 @@ static mlx_texture_t	*get_texture(t_mlx *mlx)
 	mlx->ray->angle = normalize_angle(mlx->ray->angle);
 	if (mlx->ray->w_f == 0)
 	{
-		if (is_y_unit_circle(mlx->ray->angle))
+		if (mlx->ray->angle > M_PI / 2 && mlx->ray->angle < 3 * (M_PI / 2))
 			return (mlx->texture->east);
 		else
 			return (mlx->texture->west);
 	}
 	else
 	{
-		if (is_x_unit_circle(mlx->ray->angle))
+		if (mlx->ray->angle > 0 && mlx->ray->angle < M_PI)
 			return (mlx->texture->south);
 		else
 			return (mlx->texture->north);

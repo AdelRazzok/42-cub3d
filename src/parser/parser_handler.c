@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 10:57:07 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/11 12:38:30 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 20:30:03 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,11 @@ void	handle_element(char *line, t_map *fmap)
 void	handle_map(char *line, t_map *fmap)
 {
 	char	**tmp;
+	int		line_len;
 
+	line_len = ft_strlen(line);
+	if (line_len > fmap->map_width)
+		fmap->map_width = line_len;
 	fmap->map_height++;
 	if (!fmap->map)
 	{

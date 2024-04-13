@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:08:46 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 16:37:05 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 21:57:36 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_mlx	*init_mlx(t_map *fmap)
 	mlx = malloc(sizeof(t_mlx));
 	if (!mlx)
 		free_and_error(ERR_MALLOC, fmap);
-	mlx->mlx_ptr = NULL;
 	mlx->img = NULL;
+	mlx->mlx_ptr = NULL;
 	mlx->fmap = fmap;
 	mlx->player = _init_player(mlx->fmap);
 	mlx->ray = _init_ray();

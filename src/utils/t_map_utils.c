@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/03 16:38:11 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/13 20:31:06 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_map	*init_map(void)
 	if (!fmap)
 		error(ERR_MALLOC);
 	fmap->map = NULL;
+	fmap->map_width = 0;
 	fmap->map_height = 0;
 	fmap->player_x = 0;
 	fmap->player_y = 0;
@@ -81,6 +82,7 @@ void	print_map(t_map *fmap)
 		printf("map[%d]: %s\n", i, fmap->map[i]);
 		i++;
 	}
+	printf("map_width     : %d\n", fmap->map_width);
 	printf("map_height    : %d\n", fmap->map_height);
 	printf("player_x      : %d\n", fmap->player_x);
 	printf("player_y      : %d\n", fmap->player_y);
