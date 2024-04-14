@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:00 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/14 00:38:42 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 02:02:28 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 
 typedef struct s_player
 {
-	int x; // x position in pixels
-	int y; // y position in pixels
+	int				x; // x position in pixels
+	int				y; // y position in pixels
 	double			angle;
-	float fov_rad; // field of view in radians
-	int rot_f;     // rotation flag
-	int lr_f;      // left-right flag
-	int ud_f;      // up-down flag
+	float			fov_rad; // field of view in radians
+	int				rot_f; // rotation flag
+	int				lr_f; // left-right flag
+	int				ud_f; // up-down flag
 }					t_player;
 
 typedef struct s_ray
@@ -40,8 +40,8 @@ typedef struct s_ray
 	double			h_y_inter;
 	double			v_x_inter;
 	double			v_y_inter;
-	double distance; // distance to the wall
-	int w_f;         // wall flag
+	double			distance; // distance to the wall
+	int				w_f; // wall flag
 }					t_ray;
 
 typedef struct s_texture
@@ -73,7 +73,7 @@ float				normalize_angle(float angle);
 int					inter_check(float angle, float *inter, float *step,
 						int is_horizon);
 int					unit_circle(float angle, char c);
-int					wall_hit(t_mlx *mlx, float x, float y);
+int					wall_hit(float x, float y, t_mlx *mlx);
 
 /* ************************************************************************** */
 /*                                                                            */

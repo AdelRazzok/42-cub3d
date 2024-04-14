@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:34:13 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/14 00:48:19 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 01:56:45 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ static float	_get_h_inter(t_mlx *mlx, float angle)
 	float	y_step;
 	int		pixel;
 
-	x_step = TILE_SIZE / tan(angle);
 	y_step = TILE_SIZE;
+	x_step = TILE_SIZE / tan(angle);
 	h_y = floor(mlx->player->y / TILE_SIZE) * TILE_SIZE;
-	h_x = mlx->player->x + (h_y - mlx->player->y) / tan(angle);
 	pixel = inter_check(angle, &h_y, &y_step, 1);
+	h_x = mlx->player->x + (h_y - mlx->player->y) / tan(angle);
 	if ((unit_circle(angle, 'y') && x_step > 0)
 		|| (!unit_circle(angle, 'y') && x_step < 0))
 		x_step *= -1;
-	while (wall_hit(mlx, h_x, h_y - pixel))
+	while (wall_hit(h_x, h_y - pixel, mlx))
 	{
 		h_x += x_step;
 		h_y += y_step;
@@ -85,15 +85,15 @@ static float	_get_v_inter(t_mlx *mlx, float angle)
 	float	y_step;
 	int		pixel;
 
-	y_step = TILE_SIZE * tan(angle);
 	x_step = TILE_SIZE;
+	y_step = TILE_SIZE * tan(angle);
 	v_x = floor(mlx->player->x / TILE_SIZE) * TILE_SIZE;
-	v_y = mlx->player->y + (v_x - mlx->player->x) * tan(angle);
 	pixel = inter_check(angle, &v_x, &x_step, 0);
+	v_y = mlx->player->y + (v_x - mlx->player->x) * tan(angle);
 	if ((unit_circle(angle, 'x') && y_step < 0)
 		|| (!unit_circle(angle, 'x') && y_step > 0))
 		y_step *= -1;
-	while (wall_hit(mlx, v_x - pixel, v_y))
+	while (wall_hit(v_x - pixel, v_y, mlx))
 	{
 		v_x += x_step;
 		v_y += y_step;

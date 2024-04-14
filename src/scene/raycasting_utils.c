@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:20:31 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/14 00:38:09 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 01:32:43 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,36 @@ int	unit_circle(float angle, char c)
 	return (0);
 }
 
-int	wall_hit(t_mlx *mlx, float x, float y)
+int	wall_hit(float x, float y, t_mlx *mlx)
 {
-	int	map_x;
-	int	map_y;
+	int		x_m;
+	int		y_m;
 
 	if (x < 0 || y < 0)
 		return (0);
-	map_x = floor(x / TILE_SIZE);
-	map_y = floor(y / TILE_SIZE);
-	if (map_y >= mlx->fmap->map_height || map_x >= mlx->fmap->map_width)
+	x_m = floor (x / TILE_SIZE);
+	y_m = floor (y / TILE_SIZE);
+	if ((y_m >= mlx->fmap->map_height || x_m >= mlx->fmap->map_width))
 		return (0);
-	if (mlx->fmap->map[map_y] && map_x <= (int)ft_strlen(mlx->fmap->map[map_y]))
-		if (mlx->fmap->map[map_y][map_x] == '1')
+	if (mlx->fmap->map[y_m] && x_m <= (int)ft_strlen(mlx->fmap->map[y_m]))
+		if (mlx->fmap->map[y_m][x_m] == '1')
 			return (0);
 	return (1);
 }
+
+// int	wall_hit(t_mlx *mlx, float x, float y)
+// {
+// 	int	map_x;
+// 	int	map_y;
+
+// 	if (x < 0 || y < 0)
+// 		return (0);
+// 	map_x = floor(x / TILE_SIZE);
+// 	map_y = floor(y / TILE_SIZE);
+// 	if (map_y >= mlx->fmap->map_height || map_x >= mlx->fmap->map_width)
+// 		return (0);
+// 	if (mlx->fmap->map[map_y] && map_x <= (int)ft_strlen(mlx->fmap->map[map_y]))
+// 		if (mlx->fmap->map[map_y][map_x] == '1')
+// 			return (0);
+// 	return (1);
+// }

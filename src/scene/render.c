@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:16:35 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/14 00:43:15 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 02:00:04 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static void	_draw_wall(t_mlx *mlx, int t_pixel, int b_pixel, double wall_height)
 	double			x_offset;
 	double			y_offset;
 	double			scalling_factor;
-	long long int	pixel_index;
 
 	texture = get_texture(mlx);
 	text_pixels = (uint32_t *)texture->pixels;
@@ -57,10 +56,9 @@ static void	_draw_wall(t_mlx *mlx, int t_pixel, int b_pixel, double wall_height)
 		y_offset = 0;
 	while (t_pixel < b_pixel)
 	{
-		pixel_index = (int)y_offset * texture->width + (int)x_offset;
-		if (pixel_index < INT32_MAX)
-			init_put_pixel(mlx, mlx->ray->id, t_pixel,
-				reverse_bytes(text_pixels[pixel_index]));
+		init_put_pixel(mlx, mlx->ray->id, t_pixel,
+			reverse_bytes(text_pixels[(int)y_offset * texture->width
+				+ (int)x_offset]));
 		y_offset += scalling_factor;
 		t_pixel++;
 	}

@@ -6,14 +6,14 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:08:46 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 21:57:36 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 01:58:07 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static t_player	*_init_player(t_map *fmap);
-static t_ray	*_init_ray();
+static t_ray	*_init_ray(void);
 static double	_get_angle(t_map *fmap);
 
 t_mlx	*init_mlx(t_map *fmap)
@@ -64,7 +64,7 @@ static t_player	*_init_player(t_map *fmap)
 	return (player);
 }
 
-static t_ray	*_init_ray()
+static t_ray	*_init_ray(void)
 {
 	t_ray	*ray;
 
