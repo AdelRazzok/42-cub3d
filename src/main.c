@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:29:37 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 14:28:58 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:28:36 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	check_file(argv[1], ".cub");
 	fmap = init_map();
 	parse_map(argv[1], fmap);
-	print_map(fmap);
 	mlx = init_mlx(fmap);
 	start_game(mlx);
 	close_game(mlx);

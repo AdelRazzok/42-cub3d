@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:58:26 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 14:26:19 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 12:58:56 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define MSG_INVLID_MAP "Error\nInvalid map\n"
 # define MSG_WRONG_COLOR "Error\nWrong color format\n"
 # define MSG_RESOLUTION "Error\nWrong resolution\n"
+# define MSG_TEXTURE "Error\nInvalid texture\n"
 
 # include "parser.h"
 
@@ -35,7 +36,8 @@ typedef enum e_error
 	ERR_MISSSING_ELEMENT,
 	ERR_WRONG_COLOR,
 	ERR_INVALID_MAP,
-	ERR_RESOLUTION
+	ERR_RESOLUTION,
+	ERR_TEXTURE
 }		t_error;
 
 void	error(t_error error_code);

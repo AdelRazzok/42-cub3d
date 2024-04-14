@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:35:27 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 20:31:06 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:29:00 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,39 +63,4 @@ void	free_map(t_map *fmap)
 	if (fmap->ceiling_color)
 		free(fmap->ceiling_color);
 	free(fmap);
-}
-
-/* ************************************************************************** */
-/*                                                                            */
-/* Test functions                                                             */
-/*                                                                            */
-/* ************************************************************************** */
-
-void	print_map(t_map *fmap)
-{
-	int	i;
-
-	i = 0;
-	printf("\nPRINT T_MAP : \n");
-	while (fmap->map && fmap->map[i])
-	{
-		printf("map[%d]: %s\n", i, fmap->map[i]);
-		i++;
-	}
-	printf("map_width     : %d\n", fmap->map_width);
-	printf("map_height    : %d\n", fmap->map_height);
-	printf("player_x      : %d\n", fmap->player_x);
-	printf("player_y      : %d\n", fmap->player_y);
-	if (fmap->north_path)
-		printf("north_path    : %s", fmap->north_path);
-	if (fmap->south_path)
-		printf("south_path    : %s", fmap->south_path);
-	if (fmap->west_path)
-		printf("west_path     : %s", fmap->west_path);
-	if (fmap->east_path)
-		printf("east_path     : %s", fmap->east_path);
-	if (fmap->floor_color)
-		printf("floor_color   : %s", fmap->floor_color);
-	if (fmap->ceiling_color)
-		printf("ceiling_color : %s\n", fmap->ceiling_color);
 }

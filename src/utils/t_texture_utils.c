@@ -6,15 +6,16 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:32:23 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 17:21:42 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:04:27 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 char		*trim_end(char *line);
+void		free_texture(t_texture *texture);
 
-t_texture	*init_texture(t_map *fmap)
+t_texture	*init_texture(t_map *fmap, t_mlx *mlx)
 {
 	t_texture	*texture;
 
@@ -25,6 +26,14 @@ t_texture	*init_texture(t_map *fmap)
 	texture->south = mlx_load_png(trim_end(fmap->south_path));
 	texture->east = mlx_load_png(trim_end(fmap->east_path));
 	texture->west = mlx_load_png(trim_end(fmap->west_path));
+	if (!texture->north || !texture->south || !texture->east || !texture->west)
+	{
+		free_texture(texture);
+		free(mlx->player);
+		free(mlx->ray);
+		free(mlx);
+		free_and_error(ERR_TEXTURE, fmap);
+	}
 	return (texture);
 }
 

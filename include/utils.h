@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:47:14 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 16:42:04 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:29:03 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ char		*get_next_line(int fd);
 t_map		*init_map(void);
 void		free_map(t_map *fmap);
 void		free_array(char **array);
-void		print_map(t_map *fmap);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -77,7 +76,7 @@ void		free_mlx(t_mlx *mlx);
 /*                                                                            */
 /* ************************************************************************** */
 
-t_texture	*init_texture(t_map *fmap);
+t_texture	*init_texture(t_map *fmap, t_mlx *mlx);
 void		free_texture(t_texture *texture);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:08:46 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/14 01:58:07 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:00:00 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_mlx	*init_mlx(t_map *fmap)
 	mlx->fmap = fmap;
 	mlx->player = _init_player(mlx->fmap);
 	mlx->ray = _init_ray();
-	mlx->texture = init_texture(mlx->fmap);
+	mlx->texture = init_texture(mlx->fmap, mlx);
 	return (mlx);
 }
 

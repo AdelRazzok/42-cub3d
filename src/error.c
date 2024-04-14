@@ -6,7 +6,7 @@
 /*   By: arazzok <arazzok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:50:15 by arazzok           #+#    #+#             */
-/*   Updated: 2024/04/13 14:26:44 by arazzok          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:06:31 by arazzok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	error(t_error error_code)
 		print_error(MSG_RESOLUTION);
 	else if (error_code == ERR_INVALID_MAP)
 		print_error(MSG_INVLID_MAP);
+	else if (error_code == ERR_TEXTURE)
+		print_error(MSG_TEXTURE);
 	exit(1);
 }
 
